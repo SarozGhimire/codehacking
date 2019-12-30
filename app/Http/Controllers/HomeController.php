@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Requests;
+use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -14,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -24,6 +27,36 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $user = Auth::user();
+        $posts = Post::paginate(5);
+        $categories = Category::all();
+        return view('home', compact('posts', 'categories','user'));
+
+        
     }
+
+       public function category($id)
+    {
+
+        $user = Auth::user();
+        $posts = Post::whereCategoryId($id)->paginate(5);
+        $categories = Category::all();
+        return view('category', compact('posts', 'categories', 'user'));
+
+        
+    }
+
+    public function search($key)
+    {
+
+        $user = Auth::user();
+        $posts = Post::whereCategoryId($id)->paginate(5);
+        $categories = Category::all();
+        return view('search', compact('posts', 'categories', 'user'));
+
+        
+    }
+
+
 }

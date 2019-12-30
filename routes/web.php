@@ -15,13 +15,15 @@ Route::auth();
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 
-// Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
+Route::get('/category/{id}', 'HomeController@category');
+Route::get('/search/{LIKE}', 'HomeController@search');
 
 
 
@@ -77,6 +79,8 @@ Route::group(['middleware'=>'admin'], function(){
 
 
 	]]); 
+
+	Route::delete('admin/delete/media', 'AdminMediasController@deleteMedia');
 
 
 	

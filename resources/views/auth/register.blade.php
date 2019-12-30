@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
+        <div class="text-center">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
@@ -71,12 +72,15 @@
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-user"></i> Register
                                 </button>
+                                <a href="{{URL::to('/')}}" class="btn btn-success">Back To Home</a>
                             </div>
                         </div>
+                            
                     </form>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </div>
 @endsection

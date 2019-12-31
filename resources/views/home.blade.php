@@ -26,7 +26,7 @@
             <hr>
             <img src="{{$post->photo ?  URL::to('/') : ''}}{{$post->photo ?  $post->photo->file : 'http://placehold.it/400x400'}}" alt="" class="img-responsive img-rounded">
             <hr>
-            <p>{{$post->body}}</p>  
+            <p>{{str_limit($post->body, $limit = 10, $end = '............')}}</p>
             <a class="btn btn-primary" href="{{URL::to('/')}}/post/{{$post->slug}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
             <hr>
@@ -51,12 +51,15 @@
             <div class="well">
                 <h4>Blog Search</h4>
                 <div class="input-group">
-                    <input type="text" class="form-control">
+                  <form method="POST" action="{{URL::to('/search')}}">
+                    {{ csrf_field() }}
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
+                    <input type="text" class="form-control" name="key">
+                        <button class="btn btn-default" type="submit">
                             <span class="glyphicon glyphicon-search"></span>
                         </button>
                     </span>
+                  </form>
                 </div>
                 <!-- /.input-group -->
             </div>

@@ -23,20 +23,16 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/', 'HomeController@index');
 Route::get('/category/{id}', 'HomeController@category');
-Route::get('/search/{LIKE}', 'HomeController@search');
+Route::post('/search', 'HomeController@search');
 
-
+Route::get('/post/{id}', ['as'=>'home.post','uses'=>'AdminPostsController@post']);
 
 
 
 
 Route::group(['middleware'=>'admin'], function(){
+	Route::get('/admin', 'AdminController@index');
 
-	Route::get('/admin', function(){
-
-		return view('admin.index');
-
-	});
 
 	Route::resource('admin/users', 'AdminUsersController', ['names'=>[
 
@@ -48,7 +44,6 @@ Route::group(['middleware'=>'admin'], function(){
 
 	]]); 
 
-	Route::get('/post/{id}', ['as'=>'home.post','uses'=>'AdminPostsController@post']);
 	
 	Route::resource('admin/posts', 'AdminPostsController', ['names'=>[
 

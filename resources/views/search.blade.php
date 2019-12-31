@@ -10,8 +10,8 @@
         <div class="col-md-8">
 
             <h1 class="page-header">
-                MY BLOGGING MACHINE
-                <small>Home for all developer</small>
+                Search Result for
+                <small>"{{$key}}"</small>
             </h1>
 
             <!-- First Blog Post -->
@@ -50,16 +50,17 @@
             <!-- Blog Search Well -->
             <div class="well">
                 <h4>Blog Search</h4>
-                <form action="{{URL::to('/search')}}" method="Post" role="search">
                 <div class="input-group">
-                    <input type="text" class="form-control" name="search">
+                  <form method="POST" action="{{URL::to('/search')}}">
+                    {{ csrf_field() }}
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
+                    <input type="text" class="form-control" name="key">
+                        <button class="btn btn-default" type="submit">
                             <span class="glyphicon glyphicon-search"></span>
                         </button>
                     </span>
+                  </form>
                 </div>
-              </form>
                 <!-- /.input-group -->
             </div>
 
@@ -93,11 +94,13 @@
                       </span>
                   </div>
               </form><br>
+              <div class="text-center">
               <a href="{{URL::to('/register')}}" class="btn btn-success">Register</a>
+              </div>
           </div>
           @endif
 
-          
+
           <!-- Blog Categories Well -->
           <div class="well">
             <h4>Blog Categories</h4>

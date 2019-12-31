@@ -22,8 +22,10 @@ class AdminPostsController extends Controller
         //
 
         $posts = Post::paginate(5);
+          $user = Auth::user();
+        $categories = Category::all();
 
-        return view('admin.posts.index', compact('posts', 'categories'));
+        return view('admin.posts.index', compact('posts', 'categories', 'user'));
     }
 
     /**
@@ -161,9 +163,12 @@ class AdminPostsController extends Controller
 
         $post = Post::findBySlugOrFail($slug);
 
+         $user = Auth::user();
+        $categories = Category::all();
+
         $comments = $post->comments()->whereIsActive(1)->get();
 
-        return view('post', compact('post','comments'));
+        return view('post', compact('post','comments', 'categories', 'user'));
 
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class HomeController extends Controller
 {
@@ -47,13 +48,14 @@ class HomeController extends Controller
         
     }
 
-    public function search($key)
+    public function search(Request $request)
     {
-
+        $key = $request->key;
+        // echo $key; die();
         $user = Auth::user();
-        $posts = Post::whereCategoryId($id)->paginate(5);
+        $posts = Post::where('title','LIKE','%'.$key.'%')->paginate(5);
         $categories = Category::all();
-        return view('search', compact('posts', 'categories', 'user'));
+        return view('search', compact('posts', 'categories', 'user', 'key'));
 
         
     }

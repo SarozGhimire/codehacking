@@ -59,6 +59,16 @@ class HomeController extends Controller
 
         
     }
+    public function author($user_id)
+    {
+
+        $user = Auth::user();
+        $posts = Post::whereUserId($user_id)->paginate(5);
+        $categories = Category::all();
+        return view('category', compact('posts', 'categories', 'user'));
+
+        
+    }
 
 
 }

@@ -117,11 +117,7 @@
 
 
 
-        <!-- Side Widget Well -->
-        <div class="well">
-            <h4>Side Widget Well</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-        </div>
+            <a class="navbar-brand" href="{{URL::to('https://laravel.com/docs/5.3')}}"><img height="390" width="430" src="{{URL::to('../public/images/laravel.jpg')}}" alt=""></a>
 
     </div>
 
@@ -130,17 +126,5 @@
 
 <hr>
 
-<!-- Footer -->
-<footer>
-    <div class="row">
-        <div class="col-lg-12">
-            <p>Copyright &copy; Your Website 2014</p>
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
-</footer>
-
-</div>
 <!-- /.container -->
 @endsection

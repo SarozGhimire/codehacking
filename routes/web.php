@@ -24,7 +24,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/', 'HomeController@index');
 Route::get('/category/{id}', 'HomeController@category');
 Route::post('/search', 'HomeController@search');
-
+Route::get('/author/{id}', 'HomeController@author');
 Route::get('/post/{id}', ['as'=>'home.post','uses'=>'AdminPostsController@post']);
 
 
@@ -80,26 +80,26 @@ Route::group(['middleware'=>'admin'], function(){
 
 	
 
-	Route::resource('admin/comments', 'PostCommentsController', ['names'=>[
+	// Route::resource('admin/comments', 'PostCommentsController', ['names'=>[
 
-		'index'=>'admin.comments.index',
-		'create'=>'admin.comments.create',
-		'store'=>'admin.comments.store',
-		'edit'=>'admin.comments.edit',
-		'show'=>'admin.comments.show',
-
-
-	]]); 
-
-	Route::resource('admin/comment/replies', 'CommentRepliesController', ['names'=>[
-
-		'index'=>'admin.replies.index',
-		'create'=>'admin.replies.create',
-		'store'=>'admin.replies.store',
-		'edit'=>'admin.replies.edit',
+	// 	'index'=>'admin.comments.index',
+	// 	'create'=>'admin.comments.create',
+	// 	'store'=>'admin.comments.store',
+	// 	'edit'=>'admin.comments.edit',
+	// 	'show'=>'admin.comments.show',
 
 
-	]]); 	
+	// ]]); 
+
+	// Route::resource('admin/comment/replies', 'CommentRepliesController', ['names'=>[
+
+	// 	'index'=>'admin.replies.index',
+	// 	'create'=>'admin.replies.create',
+	// 	'store'=>'admin.replies.store',
+	// 	'edit'=>'admin.replies.edit',
+
+
+	// ]]); 	
 
 
 });

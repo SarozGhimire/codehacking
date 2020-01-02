@@ -128,7 +128,7 @@
           var data = google.visualization.arrayToDataTable([
             ['Data', 'Count'],
 
-            ['All Posts',3],['Active Posts',2],['Draft Posts',1],['Comments',1],['Pending Comments',1],['Users',3],['Subscribers',2],['Categories',5],            ]);
+            ['Posts',{{$post_count}}],['Categories',{{$category_count}}],['Medias',{{$media_count}}],['Users',{{$user_count}}]         ]);
 
           var options = {
             chart: {

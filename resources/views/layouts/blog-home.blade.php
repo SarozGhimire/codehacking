@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog Home - Start Bootstrap Template</title>
+    <title>Blog Home - MY BLOGGING MACHINE</title>
 
     <!-- Bootstrap Core CSS -->
    <link href="{{asset('css/app.css')}}" rel="stylesheet">
@@ -38,8 +38,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{URL::to('/')}}">All Posts</a>
+                 
             </div>
+
+            <li>
+                <a class="navbar-brand" href="{{URL::to('/')}}"><img height="100"  src="{{URL::to('../public/images/logo.png')}}" alt="no logo"></a>
+            </li>
+
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
@@ -49,6 +54,9 @@
                     @if($user)
                     <li class="pull-right">
                          <a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a>
+                    </li>
+                    <li class="pull-right">
+                         <a href="{{ url('/admin') }}"><i class="fa fa-btn fa-sign-out"></i>Go To Admin</a>
                     </li>
                     @endif
                 </ul>
@@ -61,6 +69,17 @@
     <!-- Page Content -->
    @yield('content')
     <!-- /.container -->
+    <!-- Footer -->
+<footer>
+    <div class="row">
+        <div class="col-lg-12">
+            <p>Copyright &copy; MY BLOGGING MACHINE {{date('Y')}}</p>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</footer>
+</div>
 
     <!-- jQuery -->
     <script src="{{asset('js/jquery.js')}}"></script>

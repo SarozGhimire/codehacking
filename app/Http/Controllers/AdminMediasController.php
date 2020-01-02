@@ -53,7 +53,8 @@ class AdminMediasController extends Controller
     public  function deleteMedia(Request $request){
 
         if (isset($request->delete_single)) {
-            
+            // echo $request->photo;
+            // die();
             $this->destroy($request->photo);
 
 
@@ -62,8 +63,8 @@ class AdminMediasController extends Controller
         }
 
         if (isset($request->delete_all) && !empty($request->checkBoxArray)) {
-
-
+            // print_r($request->checkBoxArray);
+            // die();
             $photos = Photo::findOrFail($request->checkBoxArray);
 
             foreach ($photos as $photo) {

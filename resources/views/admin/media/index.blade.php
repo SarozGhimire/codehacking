@@ -34,6 +34,7 @@
 			<th>Id</th>
 			<th>Name</th>
 			<th>Created</th>
+			{{-- <th>Single Delete</th> --}}
 		</tr>
 	</thead>
 
@@ -47,7 +48,7 @@
 			<td><img height="50" src="{{$photo->file}}" alt=""></td>
 			<td>{{$photo->created_at ? $photo->created_at->diffForHumans() : 'no date'}}</td>
  
-			<td>
+			{{-- <td>
 
 				<input type="hidden" name="photo" value="{{$photo->id}}">
 
@@ -55,10 +56,7 @@
 					<input type="submit" name="delete_single" value="Delete" class="btn btn-danger">
 				</div>
 
-
-
-
-			</td>
+			</td> --}}
 		</tr>
 		@endforeach
 	</tbody>

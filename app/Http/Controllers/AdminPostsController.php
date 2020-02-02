@@ -163,12 +163,22 @@ class AdminPostsController extends Controller
 
         $post = Post::findBySlugOrFail($slug);
 
-         $user = Auth::user();
+        $pposts = Post::orderBy('views', 'DESC')->limit(5);
+
+        $db_views =  $post->views;
+        $id = $post->id;
+        $input['views'] = $db_views+1;
+         
+        $post->whereId($id)->update($input);
+
+
+
+        $user = Auth::user();
         $categories = Category::all();
 
         $comments = $post->comments()->whereIsActive(1)->get();
 
-        return view('post', compact('post','comments', 'categories', 'user'));
+        return view('post', compact('post','comments', 'categories', 'user', 'pposts'));
 
     }
 }

@@ -117,6 +117,22 @@
             <!-- /.row -->
         </div>
 
+        <div class="well">
+            <h4>Populor Posts</h4>
+            @foreach($pposts as $post)
+            <div class="row">
+                <div class="col-lg-">
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-user"></i> <a href="{{URL::to('/')}}/post/{{$post->slug}}" target="_blank">{{$post->title}}</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            @endforeach
+            <!-- /.row -->
+        </div>
+
+
 
 
         <!-- Side Widget Well -->

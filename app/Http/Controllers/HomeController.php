@@ -32,7 +32,9 @@ class HomeController extends Controller
         $user = Auth::user();
         $posts = Post::paginate(5);
         $categories = Category::all();
-        return view('home', compact('posts', 'categories','user'));
+                $pposts = Post::orderBy('views', 'DESC')->limit(5)->get();
+                // print_r($pposts);
+        return view('home', compact('posts', 'categories','user', 'pposts'));
 
         
     }

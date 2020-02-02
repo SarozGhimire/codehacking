@@ -23,7 +23,7 @@
 
 				<!-- Author -->
 				<p class="lead">
-					by <a href="#">{{$post->user->name}}</a>
+					by <a href="{{URL::to('/author')}}/{{$post->user_id}}">{{$post->user->name}}</a>
 				</p>
 
 				<hr>
@@ -131,6 +131,21 @@
                 <div class="col-lg-6">
                     <ul class="list-unstyled">
                         <li><a href="{{URL::to('/category')}}/{{$category->id}}">{{$category->name}}</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            @endforeach
+            <!-- /.row -->
+        </div>
+
+          <div class="well">
+            <h4>Populor Posts</h4>
+            @foreach($pposts as $post)
+            <div class="row">
+                <div class="col-lg-6">
+                    <ul class="list-unstyled">
+                        <li><a href="{{URL::to('/category')}}/{{$category->id}}">{{$post->title}}</a></li>
                     </ul>
                 </div>
 

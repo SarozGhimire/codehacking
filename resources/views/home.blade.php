@@ -90,7 +90,7 @@
                       </span>
                       @endif
                       <span class="input-group-btn">
-                          <button class="btn btn-primary" type="submit" name="login">Submit</button>
+                          <button class="btn btn-primary" type="submit" name="#">Submit</button>
                       </span>
                   </div>
               </form><br>
